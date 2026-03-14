@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptops — Electrostore</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<!-- Cart overlay + drawer -->
+<div id="cartOverlay" class="cart-overlay"></div>
+<aside id="cartDrawer" class="cart-drawer">
+  <div class="cart-drawer-head">
+    <h5>🛒 Cart</h5>
+    <button id="cartCloseBtn" class="cart-close-btn" title="Close">✕</button>
+  </div>
+  <div class="cart-items-list" id="cartItemsList"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Subtotal</span>
+      <span class="cart-total-amount" id="cartTotalAmt">Rs. 0</span>
+    </div>
+    <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout →</button>
+    <p style="text-align:center;font-size:.7rem;color:var(--white-muted);margin-top:9px">🚚 Free delivery on orders above Rs. 5,000</p>
+  </div>
+</aside>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Electro<span>store</span></a>
+    <div class="d-none d-xl-flex mx-3" style="flex:1;max-width:260px">
+      <div class="nav-search w-100">
+        <input type="text" id="navSearch" placeholder="Search products…" autocomplete="off">
+        <button class="nav-search-btn" type="button">🔍</button>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="smartphones.html">Smartphones</a></li>
+        <li class="nav-item"><a class="nav-link active" href="laptops.html">Laptops</a></li>
+        <li class="nav-item"><a class="nav-link" href="accessories.html">Accessories</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link btn-nav-cart" href="login.html">🔐 Login</a>
+        </li>
+        <li class="nav-item" style="position:relative">
+          <button id="cartOpenBtn" class="nav-link btn-nav-cart cart-btn-main">
+            🛒 Cart
+            <span class="cart-badge">0</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="container" style="position:relative;z-index:1">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Laptops</li>
+      </ol>
+    </nav>
+    <div class="section-badge">💻 Laptops & Notebooks</div>
+    <h1 class="section-title mt-3">Premium <span>Laptops</span></h1>
+    <div class="divider"></div>
+    <p class="section-sub">From ultrabooks to gaming powerhouses — find the perfect laptop for work, study, or gaming.</p>
+  </div>
+</div>
+<section class="section-pad">
+  <div class="container">
+    <div class="filter-bar">
+      <span class="filter-label">Type:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ultrabook">Ultrabook</button>
+      <button class="filter-btn" data-filter="gaming">Gaming</button>
+      <button class="filter-btn" data-filter="business">Business</button>
+    </div>
+    <div class="row g-4"><div class="col-lg-4 col-md-6 fade-up" data-category="ultrabook">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag new">New</span>
+            <button class="wish-heart" data-action="wishlist" data-name="MacBook Pro M4" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80" alt="MacBook Pro M4" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Apple</div>
+            <div class="card-title">MacBook Pro M4</div>
+            <table class="card-spec-table"><tr><td>Processor</td><td>Apple M4 Pro (12-core CPU)</td></tr><tr><td>RAM</td><td>24GB Unified Memory</td></tr><tr><td>Storage</td><td>512GB SSD</td></tr><tr><td>Display</td><td>14.2" Liquid Retina XDR</td></tr><tr><td>Battery</td><td>Up to 22 hours</td></tr><tr><td>Weight</td><td>1.55 kg</td></tr></table>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.9 · 312 reviews)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 649,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="MacBook Pro M4">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-4 col-md-6 fade-up fade-up-delay-1" data-category="ultrabook">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag sale">Sale</span>
+            <button class="wish-heart" data-action="wishlist" data-name="MacBook Air M3" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80" alt="MacBook Air M3" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Apple</div>
+            <div class="card-title">MacBook Air M3</div>
+            <table class="card-spec-table"><tr><td>Processor</td><td>Apple M3 (8-core CPU)</td></tr><tr><td>RAM</td><td>8GB / 16GB / 24GB</td></tr><tr><td>Storage</td><td>256GB / 512GB / 1TB</td></tr><tr><td>Display</td><td>13.6" Liquid Retina</td></tr><tr><td>Battery</td><td>Up to 18 hours</td></tr><tr><td>Weight</td><td>1.24 kg</td></tr></table>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.8 · 445 reviews)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 349,000</span><span class="price-old">Rs. 389,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="MacBook Air M3">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-4 col-md-6 fade-up fade-up-delay-2" data-category="gaming">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag hot">🔥 Hot</span>
+            <button class="wish-heart" data-action="wishlist" data-name="ROG Zephyrus G16" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=500&q=80" alt="ROG Zephyrus G16" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-brand">ASUS</div>
+            <div class="card-title">ROG Zephyrus G16</div>
+            <table class="card-spec-table"><tr><td>Processor</td><td>Intel Core Ultra 9 185H</td></tr><tr><td>RAM</td><td>32GB DDR5</td></tr><tr><td>Storage</td><td>1TB PCIe 4.0 SSD</td></tr><tr><td>GPU</td><td>NVIDIA RTX 4070 8GB</td></tr><tr><td>Display</td><td>16" 240Hz QHD OLED</td></tr><tr><td>Weight</td><td>1.85 kg</td></tr></table>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.8 · 178 reviews)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 489,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="ROG Zephyrus G16">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-4 col-md-6 fade-up" data-category="business">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag sale">-15%</span>
+            <button class="wish-heart" data-action="wishlist" data-name="Dell XPS 15" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80" alt="Dell XPS 15" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Dell</div>
+            <div class="card-title">Dell XPS 15</div>
+            <table class="card-spec-table"><tr><td>Processor</td><td>Intel Core i9-13900H</td></tr><tr><td>RAM</td><td>32GB DDR5</td></tr><tr><td>Storage</td><td>1TB SSD</td></tr><tr><td>GPU</td><td>NVIDIA RTX 4060 8GB</td></tr><tr><td>Display</td><td>15.6" 3.5K OLED Touch</td></tr><tr><td>Weight</td><td>1.86 kg</td></tr></table>
+            <div class="card-rating">
+              <span class="stars">★★★★½</span>
+              <span class="rating-count">(4.7 · 203 reviews)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 369,000</span><span class="price-old">Rs. 435,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Dell XPS 15">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-4 col-md-6 fade-up fade-up-delay-1" data-category="business">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            
+            <button class="wish-heart" data-action="wishlist" data-name="ThinkPad X1 Carbon" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80" alt="ThinkPad X1 Carbon" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Lenovo</div>
+            <div class="card-title">ThinkPad X1 Carbon</div>
+            <table class="card-spec-table"><tr><td>Processor</td><td>Intel Core Ultra 7 164U</td></tr><tr><td>RAM</td><td>16GB / 32GB LPDDR5</td></tr><tr><td>Storage</td><td>512GB / 1TB SSD</td></tr><tr><td>Display</td><td>14" 2.8K OLED Anti-glare</td></tr><tr><td>Battery</td><td>Up to 15 hours</td></tr><tr><td>Weight</td><td>1.12 kg</td></tr></table>
+            <div class="card-rating">
+              <span class="stars">★★★★½</span>
+              <span class="rating-count">(4.7 · 156 reviews)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 329,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="ThinkPad X1 Carbon">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-4 col-md-6 fade-up fade-up-delay-2" data-category="gaming">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag new">New</span>
+            <button class="wish-heart" data-action="wishlist" data-name="HP Omen 16" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=500&q=80" alt="HP Omen 16" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-brand">HP</div>
+            <div class="card-title">HP Omen 16</div>
+            <table class="card-spec-table"><tr><td>Processor</td><td>Intel Core i9-14900HX</td></tr><tr><td>RAM</td><td>32GB DDR5 5600MHz</td></tr><tr><td>Storage</td><td>1TB PCIe 4.0 SSD</td></tr><tr><td>GPU</td><td>NVIDIA RTX 4080 12GB</td></tr><tr><td>Display</td><td>16" 240Hz QHD IPS</td></tr><tr><td>Weight</td><td>2.35 kg</td></tr></table>
+            <div class="card-rating">
+              <span class="stars">★★★★½</span>
+              <span class="rating-count">(4.6 · 89 reviews)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 529,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="HP Omen 16">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand">Electro<span>store</span></div>
+        <p class="footer-desc">Your one-stop destination for the latest electronics — smartphones, laptops, and accessories at unbeatable prices.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">𝕏</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">▶</a>
+          <a href="#" class="social-btn">📸</a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="index.html">→ Home</a></li>
+          <li><a href="products.html">→ Products</a></li>
+          <li><a href="smartphones.html">→ Smartphones</a></li>
+          <li><a href="laptops.html">→ Laptops</a></li>
+          <li><a href="accessories.html">→ Accessories</a></li>
+          <li><a href="contact.html">→ Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <p class="footer-heading">Categories</p>
+        <ul class="footer-links">
+          <li><a href="#">→ Flagship Phones</a></li>
+          <li><a href="#">→ Gaming Laptops</a></li>
+          <li><a href="#">→ Headphones</a></li>
+          <li><a href="#">→ Smart Watches</a></li>
+          <li><a href="#">→ Tablets</a></li>
+          <li><a href="#">→ Cameras</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p class="footer-heading">Newsletter</p>
+        <p style="font-size:.83rem;color:var(--white-dim);margin-bottom:14px">Get exclusive deals and tech news to your inbox.</p>
+        <form class="newsletter-form d-flex gap-2 mb-4">
+          <input type="email" class="form-control" placeholder="your@email.com" required>
+          <button type="submit" class="btn-cyan btn-sm-cyan" style="white-space:nowrap;padding:10px 16px">Subscribe</button>
+        </form>
+        <p class="footer-heading">Contact Info</p>
+        <ul class="footer-links">
+          <li><a href="mailto:support@electrostore.com">✉ support@electrostore.com</a></li>
+          <li><a href="tel:+923001234567">📞 +92 300 1234567</a></li>
+          <li><a href="#">📍 Blue Area, Islamabad, Pakistan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Electrostore</span>. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;·&nbsp; Terms of Service &nbsp;·&nbsp; Refund Policy</p>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

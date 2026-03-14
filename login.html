@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Electrostore</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Electro<span>store</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="smartphones.html">Smartphones</a></li>
+        <li class="nav-item"><a class="nav-link" href="laptops.html">Laptops</a></li>
+        <li class="nav-item"><a class="nav-link" href="accessories.html">Accessories</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link btn-nav-cart active" href="login.html">🔐 Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-wrap">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="auth-card">
+
+          <div class="auth-logo">Electro<span>store</span></div>
+          <p style="text-align:center;font-size:.72rem;letter-spacing:2.5px;font-family:var(--font-display);color:var(--white-dim);text-transform:uppercase;margin-bottom:0">Member Portal</p>
+
+          <!-- Tabs -->
+          <div style="display:flex;background:var(--navy-3);border:1px solid var(--border);border-radius:11px;padding:4px;margin:22px 0 0">
+            <button id="tabLogin" onclick="switchTab('login')" style="flex:1;padding:11px;background:var(--cyan);color:var(--navy);border:none;border-radius:8px;font-family:var(--font-head);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .3s">Sign In</button>
+            <button id="tabRegister" onclick="switchTab('register')" style="flex:1;padding:11px;background:transparent;color:var(--white-dim);border:none;border-radius:8px;font-family:var(--font-head);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .3s">Create Account</button>
+          </div>
+
+          <!-- LOGIN PANEL -->
+          <div id="panelLogin">
+            <div class="auth-title">Welcome Back</div>
+            <p class="auth-sub">Sign in to your Electrostore account</p>
+
+            <form id="loginForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <div class="input-icon-wrap">
+                  <span class="input-icon">✉</span>
+                  <input type="email" class="form-control" id="loginEmail" placeholder="you@example.com">
+                </div>
+                <div id="emailMsg" class="validation-msg"></div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label mb-0">Password</label>
+                  <a href="#" style="font-size:.75rem;color:var(--cyan)">Forgot password?</a>
+                </div>
+                <div class="input-icon-wrap" style="position:relative">
+                  <span class="input-icon">🔒</span>
+                  <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" style="padding-right:42px!important">
+                  <button type="button" class="toggle-pw" data-target="#loginPassword">👁</button>
+                </div>
+                <div id="pwMsg" class="validation-msg"></div>
+              </div>
+              <div class="mb-4 d-flex align-items-center gap-2">
+                <input type="checkbox" id="rememberMe" style="width:15px;height:15px;accent-color:var(--cyan);cursor:pointer">
+                <label for="rememberMe" style="font-size:.8rem;color:var(--white-dim);cursor:pointer;margin:0">Remember me</label>
+              </div>
+              <button type="submit" class="btn-cyan w-100" style="justify-content:center;padding:14px">Sign In &rarr;</button>
+            </form>
+
+            <div class="auth-divider">or continue with</div>
+            <div class="row g-2">
+              <div class="col-4">
+                <button class="btn-outline-cyan w-100" style="padding:10px;justify-content:center;font-size:.72rem" onclick="showToast('Google login coming soon!')">G Google</button>
+              </div>
+              <div class="col-4">
+                <button class="btn-outline-cyan w-100" style="padding:10px;justify-content:center;font-size:.72rem" onclick="showToast('Facebook login coming soon!')">f Facebook</button>
+              </div>
+              <div class="col-4">
+                <button class="btn-outline-cyan w-100" style="padding:10px;justify-content:center;font-size:.72rem" onclick="showToast('Apple login coming soon!')">🍎 Apple</button>
+              </div>
+            </div>
+
+            <p style="text-align:center;font-size:.82rem;color:var(--white-dim);margin-top:22px">
+              Don't have an account? <a href="#" onclick="switchTab('register')" style="color:var(--cyan);font-weight:700">Create one free →</a>
+            </p>
+          </div>
+
+          <!-- REGISTER PANEL -->
+          <div id="panelRegister" style="display:none">
+            <div class="auth-title">Create Account</div>
+            <p class="auth-sub">Join thousands of happy Electrostore customers</p>
+
+            <form id="registerForm" novalidate>
+              <div class="row g-3">
+                <div class="col-6">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="regFirst" placeholder="John">
+                  <div id="regFirstMsg" class="validation-msg"></div>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Doe">
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Email Address</label>
+                  <div class="input-icon-wrap">
+                    <span class="input-icon">✉</span>
+                    <input type="email" class="form-control" id="regEmail" placeholder="you@example.com">
+                  </div>
+                  <div id="regEmailMsg" class="validation-msg"></div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Password</label>
+                  <div class="input-icon-wrap" style="position:relative">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" class="form-control" id="regPassword" placeholder="Min. 8 characters" style="padding-right:42px!important">
+                    <button type="button" class="toggle-pw" data-target="#regPassword">👁</button>
+                  </div>
+                  <div id="regPwMsg" class="validation-msg"></div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Confirm Password</label>
+                  <div class="input-icon-wrap" style="position:relative">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" class="form-control" id="regConfirm" placeholder="Re-enter password" style="padding-right:42px!important">
+                    <button type="button" class="toggle-pw" data-target="#regConfirm">👁</button>
+                  </div>
+                  <div id="regConfirmMsg" class="validation-msg"></div>
+                </div>
+                <div class="col-12">
+                  <div style="display:flex;align-items:flex-start;gap:10px">
+                    <input type="checkbox" id="agreeTerms" style="width:15px;height:15px;accent-color:var(--cyan);cursor:pointer;margin-top:3px;flex-shrink:0">
+                    <label for="agreeTerms" style="font-size:.8rem;color:var(--white-dim);cursor:pointer">
+                      I agree to the <a href="#" style="color:var(--cyan)">Terms of Service</a> and <a href="#" style="color:var(--cyan)">Privacy Policy</a>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-cyan w-100" style="justify-content:center;padding:14px">Create Account &rarr;</button>
+                </div>
+              </div>
+            </form>
+
+            <p style="text-align:center;font-size:.82rem;color:var(--white-dim);margin-top:18px">
+              Already have an account? <a href="#" onclick="switchTab('login')" style="color:var(--cyan);font-weight:700">Sign in →</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+<script>
+function switchTab(tab) {
+  const loginPanel = document.getElementById('panelLogin');
+  const regPanel   = document.getElementById('panelRegister');
+  const tabLogin   = document.getElementById('tabLogin');
+  const tabReg     = document.getElementById('tabRegister');
+  const active   = 'background:var(--cyan);color:var(--navy)';
+  const inactive = 'background:transparent;color:var(--white-dim)';
+  if (tab === 'login') {
+    loginPanel.style.display = '';
+    regPanel.style.display   = 'none';
+    tabLogin.setAttribute('style', `flex:1;padding:11px;border:none;border-radius:8px;font-family:var(--font-head);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .3s;${active}`);
+    tabReg.setAttribute('style',   `flex:1;padding:11px;border:none;border-radius:8px;font-family:var(--font-head);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .3s;${inactive}`);
+  } else {
+    loginPanel.style.display = 'none';
+    regPanel.style.display   = '';
+    tabReg.setAttribute('style',   `flex:1;padding:11px;border:none;border-radius:8px;font-family:var(--font-head);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .3s;${active}`);
+    tabLogin.setAttribute('style', `flex:1;padding:11px;border:none;border-radius:8px;font-family:var(--font-head);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .3s;${inactive}`);
+  }
+}
+
+// Password toggle
+document.querySelectorAll('.toggle-pw[data-target]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.querySelector(btn.dataset.target);
+    if (!target) return;
+    target.type = target.type === 'password' ? 'text' : 'password';
+    btn.textContent = target.type === 'password' ? '👁' : '🙈';
+  });
+});
+
+// Register validation
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  const first   = document.getElementById('regFirst');
+  const email   = document.getElementById('regEmail');
+  const pw      = document.getElementById('regPassword');
+  const confirm = document.getElementById('regConfirm');
+  const terms   = document.getElementById('agreeTerms');
+
+  document.querySelectorAll('#registerForm .validation-msg').forEach(m => m.className = 'validation-msg');
+
+  if (!first.value.trim()) {
+    const m = document.getElementById('regFirstMsg');
+    m.textContent = '⚠ First name is required.'; m.className = 'validation-msg error'; valid = false;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    const m = document.getElementById('regEmailMsg');
+    m.textContent = '⚠ Enter a valid email.'; m.className = 'validation-msg error'; valid = false;
+  }
+  if (pw.value.length < 8) {
+    const m = document.getElementById('regPwMsg');
+    m.textContent = '⚠ Minimum 8 characters.'; m.className = 'validation-msg error'; valid = false;
+  }
+  if (pw.value !== confirm.value) {
+    const m = document.getElementById('regConfirmMsg');
+    m.textContent = '⚠ Passwords do not match.'; m.className = 'validation-msg error'; valid = false;
+  }
+  if (!terms.checked) {
+    showToast('Please agree to Terms of Service to continue.');
+    valid = false;
+  }
+  if (valid) {
+    const btn = this.querySelector('[type=submit]');
+    btn.textContent = 'Creating account...'; btn.disabled = true;
+    setTimeout(() => {
+      showToast('Account created! Welcome to Electrostore 🎉');
+      btn.textContent = 'Create Account →'; btn.disabled = false;
+      this.reset(); switchTab('login');
+    }, 1500);
+  }
+});
+</script>
+</body>
+</html>

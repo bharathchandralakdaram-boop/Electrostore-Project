@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories — Electrostore</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<!-- Cart overlay + drawer -->
+<div id="cartOverlay" class="cart-overlay"></div>
+<aside id="cartDrawer" class="cart-drawer">
+  <div class="cart-drawer-head">
+    <h5>🛒 Cart</h5>
+    <button id="cartCloseBtn" class="cart-close-btn" title="Close">✕</button>
+  </div>
+  <div class="cart-items-list" id="cartItemsList"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Subtotal</span>
+      <span class="cart-total-amount" id="cartTotalAmt">Rs. 0</span>
+    </div>
+    <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout →</button>
+    <p style="text-align:center;font-size:.7rem;color:var(--white-muted);margin-top:9px">🚚 Free delivery on orders above Rs. 5,000</p>
+  </div>
+</aside>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Electro<span>store</span></a>
+    <div class="d-none d-xl-flex mx-3" style="flex:1;max-width:260px">
+      <div class="nav-search w-100">
+        <input type="text" id="navSearch" placeholder="Search products…" autocomplete="off">
+        <button class="nav-search-btn" type="button">🔍</button>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="smartphones.html">Smartphones</a></li>
+        <li class="nav-item"><a class="nav-link" href="laptops.html">Laptops</a></li>
+        <li class="nav-item"><a class="nav-link active" href="accessories.html">Accessories</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link btn-nav-cart" href="login.html">🔐 Login</a>
+        </li>
+        <li class="nav-item" style="position:relative">
+          <button id="cartOpenBtn" class="nav-link btn-nav-cart cart-btn-main">
+            🛒 Cart
+            <span class="cart-badge">0</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="container" style="position:relative;z-index:1">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Accessories</li>
+      </ol>
+    </nav>
+    <div class="section-badge">🎧 Accessories</div>
+    <h1 class="section-title mt-3">Premium <span>Accessories</span></h1>
+    <div class="divider"></div>
+    <p class="section-sub">Complete your setup with headphones, smartwatches, keyboards, mice, and chargers.</p>
+  </div>
+</div>
+<section class="section-pad">
+  <div class="container">
+    <div class="filter-bar">
+      <span class="filter-label">Type:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="audio">Audio</button>
+      <button class="filter-btn" data-filter="wearable">Wearables</button>
+      <button class="filter-btn" data-filter="peripheral">Peripherals</button>
+      <button class="filter-btn" data-filter="charging">Charging</button>
+    </div>
+    <div class="row g-4"><div class="col-lg-3 col-md-6 fade-up fade-up-delay-1" data-category="audio">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag sale">-20%</span>
+            <button class="wish-heart" data-action="wishlist" data-name="Sony WH-1000XM5" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Sony WH-1000XM5" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Sony</div>
+            <div class="card-title">Sony WH-1000XM5</div>
+            <div class="card-specs">Industry-leading ANC · 30hr battery · Hi-Res Audio · Foldable</div>
+            <div class="card-rating">
+              <span class="stars">★★★★½</span>
+              <span class="rating-count">(4.7 · 891)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 52,000</span><span class="price-old">Rs. 65,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Sony WH-1000XM5">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-2" data-category="audio">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag new">New</span>
+            <button class="wish-heart" data-action="wishlist" data-name="AirPods Pro 2" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1600294037618-e4537e3c1f4f?w=400&q=80" alt="AirPods Pro 2" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Apple</div>
+            <div class="card-title">AirPods Pro 2</div>
+            <div class="card-specs">H2 chip · Adaptive ANC · 6hr + 30hr · USB-C Case</div>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.8 · 1.2K)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 49,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="AirPods Pro 2">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-3" data-category="wearable">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag new">New</span>
+            <button class="wish-heart" data-action="wishlist" data-name="Apple Watch S10" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&q=80" alt="Apple Watch S10" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Apple</div>
+            <div class="card-title">Apple Watch S10</div>
+            <div class="card-specs">S10 chip · 46mm · Always-On · Health tracking · ECG</div>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.9 · 445)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 79,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Apple Watch S10">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-4" data-category="wearable">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            
+            <button class="wish-heart" data-action="wishlist" data-name="Galaxy Watch 7" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Galaxy Watch 7" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Samsung</div>
+            <div class="card-title">Galaxy Watch 7</div>
+            <div class="card-specs">Exynos W1000 · 44mm · BioActive sensor · 40hr</div>
+            <div class="card-rating">
+              <span class="stars">★★★★½</span>
+              <span class="rating-count">(4.6 · 267)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 52,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Galaxy Watch 7">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-1" data-category="peripheral">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            
+            <button class="wish-heart" data-action="wishlist" data-name="MX Master 3S" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80" alt="MX Master 3S" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Logitech</div>
+            <div class="card-title">MX Master 3S</div>
+            <div class="card-specs">8000 DPI · Quiet clicks · 70-day battery · Multi-device</div>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.8 · 623)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 18,500</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="MX Master 3S">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-2" data-category="peripheral">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            
+            <button class="wish-heart" data-action="wishlist" data-name="Keychron K8 Pro" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80" alt="Keychron K8 Pro" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Keychron</div>
+            <div class="card-title">Keychron K8 Pro</div>
+            <div class="card-specs">Hot-swappable · RGB · Gateron G Pro · Bluetooth 5.1</div>
+            <div class="card-rating">
+              <span class="stars">★★★★½</span>
+              <span class="rating-count">(4.7 · 312)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 14,500</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Keychron K8 Pro">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-3" data-category="charging">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <span class="badge-tag new">New</span>
+            <button class="wish-heart" data-action="wishlist" data-name="Anker 140W Charger" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&q=80" alt="Anker 140W Charger" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Anker</div>
+            <div class="card-title">Anker 140W Charger</div>
+            <div class="card-specs">GaN III · 2× USB-C + USB-A · 140W total · Compact</div>
+            <div class="card-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4.8 · 234)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 8,500</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Anker 140W Charger">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-3 col-md-6 fade-up fade-up-delay-4" data-category="charging">
+        <div class="product-card">
+          <div class="card-img-wrap">
+            
+            <button class="wish-heart" data-action="wishlist" data-name="Belkin 3-in-1 Charger" title="Add to Wishlist">♡</button>
+            <img src="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?w=400&q=80" alt="Belkin 3-in-1 Charger" loading="lazy" >
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Belkin</div>
+            <div class="card-title">Belkin 3-in-1 Charger</div>
+            <div class="card-specs">MagSafe 15W · AirPods · Apple Watch simultaneous</div>
+            <div class="card-rating">
+              <span class="stars">★★★★</span>
+              <span class="rating-count">(4.4 · 187)</span>
+            </div>
+            <div class="card-footer-row">
+              <div><span class="price">Rs. 12,000</span></div>
+              <button class="btn-card" data-action="add-cart" data-name="Belkin 3-in-1 Charger">+ Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand">Electro<span>store</span></div>
+        <p class="footer-desc">Your one-stop destination for the latest electronics — smartphones, laptops, and accessories at unbeatable prices.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">𝕏</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">▶</a>
+          <a href="#" class="social-btn">📸</a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="index.html">→ Home</a></li>
+          <li><a href="products.html">→ Products</a></li>
+          <li><a href="smartphones.html">→ Smartphones</a></li>
+          <li><a href="laptops.html">→ Laptops</a></li>
+          <li><a href="accessories.html">→ Accessories</a></li>
+          <li><a href="contact.html">→ Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <p class="footer-heading">Categories</p>
+        <ul class="footer-links">
+          <li><a href="#">→ Flagship Phones</a></li>
+          <li><a href="#">→ Gaming Laptops</a></li>
+          <li><a href="#">→ Headphones</a></li>
+          <li><a href="#">→ Smart Watches</a></li>
+          <li><a href="#">→ Tablets</a></li>
+          <li><a href="#">→ Cameras</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p class="footer-heading">Newsletter</p>
+        <p style="font-size:.83rem;color:var(--white-dim);margin-bottom:14px">Get exclusive deals and tech news to your inbox.</p>
+        <form class="newsletter-form d-flex gap-2 mb-4">
+          <input type="email" class="form-control" placeholder="your@email.com" required>
+          <button type="submit" class="btn-cyan btn-sm-cyan" style="white-space:nowrap;padding:10px 16px">Subscribe</button>
+        </form>
+        <p class="footer-heading">Contact Info</p>
+        <ul class="footer-links">
+          <li><a href="mailto:support@electrostore.com">✉ support@electrostore.com</a></li>
+          <li><a href="tel:+923001234567">📞 +92 300 1234567</a></li>
+          <li><a href="#">📍 Blue Area, Islamabad, Pakistan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Electrostore</span>. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;·&nbsp; Terms of Service &nbsp;·&nbsp; Refund Policy</p>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
